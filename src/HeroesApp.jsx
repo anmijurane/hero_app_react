@@ -1,9 +1,8 @@
 import React from 'react'
+import AppRouter from './routers/AppRouter'
 
 export function HeroesApp() {
   return (
-    <div>
-      <hi className="title is-h1">Holaaa</hi>
-    </div>
+    <AppRouter />
   )
 }
