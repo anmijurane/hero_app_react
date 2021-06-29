@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { FcSearch } from "react-icons/fc";
 
 export default function Navbar() {
 
@@ -30,16 +31,20 @@ export default function Navbar() {
         </a>
       </div>
 
-      <div id='navbarBasicExample' className={`navbar-menu ${isActive && 'is-active'}`}>
+      <div id='navbarBasicExample' className={`navbar-menu animate__animated ${isActive && 'animate__fadeIn is-active' }`}>
         <div className='navbar-start'>
-          <NavLink to='/dc' activeClassName='is-active' className='navbar-item'>
-            DC
+          <NavLink exact to='/' activeClassName='is-active' className='navbar-item'>
+            Home
           </NavLink>
-
-          <NavLink to='/marvel' activeClassName='is-active' className='navbar-item'>
-            Marvel
+          <NavLink exact to='/dc' activeClassName='is-active' className='navbar-item'>
+            DC Comics
           </NavLink>
-
+          <NavLink exact to='/marvel' activeClassName='is-active' className='navbar-item'>
+            Marvel Comics
+          </NavLink>
+          <NavLink exact to='/search' activeClassName='is-active' className='navbar-item'>
+            Search
+          </NavLink>
         </div>
 
         <div className='navbar-end'>
@@ -53,6 +58,7 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
+
         </div>
       </div>
     </nav>
