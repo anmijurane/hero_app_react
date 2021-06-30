@@ -4,6 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import SearchInput from '../ui/SearchInput'
 import { useFilteredHero } from '../../hooks/useFilteredHero';
 import { Card } from '../ui/Card';
+import { useSaveSearch } from '../../hooks/useSaveSearch';
 
 export default function Search() {
 
@@ -18,6 +19,7 @@ export default function Search() {
     const type =  e.target[1].value;
     if( hero != '' ) {
       history.push(`?${type}=${hero}`);
+      useSaveSearch(hero);
     }
   }
 
