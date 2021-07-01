@@ -5,6 +5,7 @@ import SearchInput from '../ui/SearchInput'
 import { useFilteredHero } from '../../hooks/useFilteredHero';
 import { Card } from '../ui/Card';
 import { useSaveSearch } from '../../hooks/useSaveSearch';
+import useSetTitle from '../../hooks/useSetTitle';
 
 export default function Search() {
 
@@ -26,7 +27,7 @@ export default function Search() {
   return (
     <div className='columns '>
       <div className='column is-4'>
-        <form onSubmit={searchHero}>
+        <form onSubmit={ searchHero }>
           <div className="columns">
             <div className="column">
               <div className="field">

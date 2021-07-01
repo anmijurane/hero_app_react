@@ -2,6 +2,7 @@ import React from 'react'
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
 import { Redirect, useHistory, useParams } from 'react-router-dom'
+import useSetTitle from '../../hooks/useSetTitle';
 import { getHeroById } from '../../selectors/getHeroById';
 import Section from './submenu/Section';
 
@@ -11,6 +12,7 @@ export function HeroScreen() {
   const history = useHistory();
   
   const hero = getHeroById(heroeId);
+  useSetTitle(hero.name);
   if( !hero ) {
     return <Redirect to='/NotFound' />;
   }

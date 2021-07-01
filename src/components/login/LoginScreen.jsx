@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 
 export function LoginScreen({ history }) {
 
+  useSetTitle('Login');
+
   const handleLogin = (e) => {
     e.preventDefault();
-    history.replace('/dc');
+    history.replace('/home');
   }
   
   return (
