@@ -18,7 +18,8 @@ export default function DashboardRouter() {
       <Navbar />
       <div className="section">
         <Switch>
-          <Route exact path='/'              component={ Home} />
+          <Route exact path='/'              component={ Home } />
+          <Route exact path='/home'          component={ Home } />
           <Route exact path='/hero/:heroeId' component={ HeroScreen } />
           <Route exact path='/marvel'        component={ MarvelScreen } />
           <Route exact path='/dc'            component={ DcScreen } />

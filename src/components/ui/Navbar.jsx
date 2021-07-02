@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { FcSearch } from "react-icons/fc";
+import React, { useCallback, useContext, useState } from 'react'
+import { Link, NavLink, useHistory } from 'react-router-dom'
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../Types/types';
 
 export default function Navbar() {
 
+  const { state, dispatch } = useContext( AuthContext );
   const [isActive, setIsActive] = useState(false);
+  const history = useHistory();
 
   const handleActive = () => {
     setIsActive( !isActive );
+  }
+
+  const handleLogOut = () => {
+    dispatch({ type: types.logout })
+    history.replace('/login');
   }
 
   return (
@@ -48,14 +56,18 @@ export default function Navbar() {
         </div>
 
         <div className='navbar-end'>
+          <span className="navbar-item has-text-primary">{ state.name }</span>
           <div className='navbar-item'>
             <div className='buttons'>
               <Link to='/' className='button is-link'>
                 <strong>Profile</strong>
               </Link>
-              <Link to='/Login' className='button is-danger'>
+              <button
+                className='button is-danger'
+                onClick={handleLogOut}
+              >
                 LogOut
-              </Link>
+              </button>
             </div>
           </div>
 
