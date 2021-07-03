@@ -14,11 +14,11 @@ export function LoginScreen({ history }) {
   const { dispatch } = useContext(AuthContext);
   
   useSetTitle('Login');
-  const lastLocation = localStorage.getItem('lastLocation');
+  const lastLocation = localStorage.getItem('lastLocation') || '/';
   const handleLogin = (e) => {
     e.preventDefault();
     const [username, password] = e.target;
-    if(password.value == 'passhero00') {
+    if(password.value == 'passhero00' && username != '') {
       dispatch({
         type: types.login,
         payload: { name : username.value }
@@ -53,7 +53,7 @@ export function LoginScreen({ history }) {
         <div className='field'>
           <label className='label'>Username or Email</label>
           <div className='control has-icons-left has-icons-right'>
-            <input className={`input ${hasError ? 'is-danger' : ''}`} type='text' placeholder='Text input' />
+            <input className={`input ${hasError ? 'is-danger' : ''}`} required type='text' placeholder='Text input' />
             <span className='icon is-small is-left'>
               <AiOutlineUser />
             </span>
@@ -88,7 +88,7 @@ export function LoginScreen({ history }) {
             <p
               className={`help ${hasError ? 'is-danger' : ''} ${animate}`}
             >
-              This email is invalid
+              The password is passhero00
             </p>
           )}
         </div>

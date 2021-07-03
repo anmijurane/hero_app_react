@@ -9,7 +9,7 @@ export default function PrivateRoute({
 
   localStorage.setItem(
     'lastLocation',
-    `${location?.pathname}${location?.search}`
+    `${rest.location?.pathname}${rest.location?.search}`
   );
 
   return (

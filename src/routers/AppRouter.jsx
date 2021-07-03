@@ -17,8 +17,7 @@ export default function AppRouter() {
   const { state: user } = useContext( AuthContext );
   console.log(user);
   return (
-    <Router>
-      <div>
+    <Router basename='/heroapp'>
         <Switch>
 
           <PublicRoute
@@ -35,7 +34,6 @@ export default function AppRouter() {
           <Route exact path='/no-found' component={ NotFound } />
           <Route exact path='*' component={ NotFound } />
         </Switch>
-      </div>
     </Router>
   )
 }

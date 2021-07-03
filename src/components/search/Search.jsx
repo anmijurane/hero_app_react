@@ -54,7 +54,7 @@ export default function Search() {
         </form>
       </div>
       <div className='column is-8'>
-        <h1 className='title is-h1'> Resultados </h1>
+        <h1 className='title is-h1'> Results </h1>
         <div className="section is-flex is-flex-wrap-wrap">
         {filterHero.map( (hero) => (
           <Card
